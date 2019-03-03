@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../style/App.css';
 import NetworkManager from '../api/NetworkManager';
 import { Button, Input, Item, Container, CenteringContainer, TextBox, TextBoxStatus, AHref } from './App.styles';
 
@@ -36,7 +35,7 @@ class App extends Component {
   timer() {
     setInterval(() => {
       this.getEnvironmentStatus();
-    }, 3000);
+    }, 60000);
   }
 
   componentDidMount() {
@@ -57,21 +56,9 @@ class App extends Component {
         }
 
         let updatedServerEnvironment = this.state.serverEnvironment.map(item => {
-          let index = events.findIndex(x => x === item.code);
+          let index = events.findIndex(x => x.code === item.code);
 
-          item.status = '';
-          for (let i = index + 1; i < events.length; i++) {
-            if (this.state.serverEnvironment.findIndex(x => x.code === events[i]) < 0) {
-              item.status += `${events[i]} `;
-            }
-            else {
-              if (item.status === '') {
-                item.status = 'free';
-              }
-
-              return item;
-            }
-          }
+          item.status = events[index].summary;
           return item;
         })
 
@@ -120,8 +107,8 @@ class App extends Component {
     return (
       <CenteringContainer flexDirection='row' alignItems='baseline' background='#f2f4f7'>
         {this.state.serverEnvironment.map((event, i) => {
-          let itemColour = event.status === 'free' ? '#FFF' : '#FF5B2D';
-          let evnTextStatus = event.status !== 'free' ? '#FFF' : null;
+          let itemColour = event.status === 'Free' ? '#FFF' : '#FF5B2D';
+          let evnTextStatus = event.status !== 'Free' ? '#FFF' : null;
           return (
             <Item key={i} itemColor={itemColour}>
               <TextBox fontColor={evnTextStatus}>{event.env} </TextBox>
