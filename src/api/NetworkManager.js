@@ -1,5 +1,5 @@
 import request from 'request-promise';
-import { BASE_URL, PORT } from 'constants';
+import { BASE_URL, PORT } from '../constants';
 
 class NetworkManager {
 
