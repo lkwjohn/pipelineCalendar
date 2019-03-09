@@ -1,4 +1,5 @@
 import request from 'request-promise';
+import { BASE_URL, PORT } from 'constants';
 
 class NetworkManager {
 
@@ -6,7 +7,7 @@ class NetworkManager {
 
         var options = {
             method: 'GET',
-            uri: 'http://localhost:8081/api/web/calendar',
+            uri: `${BASE_URL}:${PORT}/api/web/calendar`,
             headers: {
             },
             json: true // Automatically parses the JSON string in the response
@@ -26,7 +27,7 @@ class NetworkManager {
     postCode(code) {
         var options = {
             method: 'POST',
-            uri: 'http://localhost:8081/api/web/calendar',
+            uri: `${BASE_URL}:${PORT}/api/web/calendar`,
             body: {
                 code
             },
