@@ -34,6 +34,7 @@ class App extends Component {
 
   timer() {
     setInterval(() => {
+      window.location.reload();
       this.getEnvironmentStatus();
     }, 60000);
   }
@@ -65,7 +66,7 @@ class App extends Component {
         this.setState({ serverEnvironment: updatedServerEnvironment });
       })
       .catch(err => {
-        alert('hey, getEnvironmentStatus is getting error leh, try reload the page');
+        console.log('hey, getEnvironmentStatus is getting error leh, try reload the page');
       });
   }
 
