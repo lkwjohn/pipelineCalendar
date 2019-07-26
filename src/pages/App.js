@@ -21,7 +21,11 @@ class App extends Component {
           env: 'Staging',
           code: '#staging',
           status: 'Free'
-        },
+        },{
+          env: 'RC',
+          code: '#rc',
+          status: 'Free'
+        }
       ],
       loadEvent: true,
       authUrl: '',
