@@ -6,7 +6,7 @@
     "cookie-parser": "^1.4.4",
     "express": "^4.16.4",
     "gapi-client": "0.0.3",
-    "googleapis": "^37.2.0",
+    "googleapis": "^59.0.0",
     "moment": "^2.24.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
